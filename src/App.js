@@ -4,7 +4,7 @@ import MapComponent from './Map'
 const App = () => {
   return (
     <div>
-      <h1>React D3 Map Example</h1>
+      <h1>UK General Election 2017</h1>
       <MapComponent />
     </div>
   );

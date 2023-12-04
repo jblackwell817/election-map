@@ -15,14 +15,12 @@ const MapComponent = () => {
   
       async function main() {
         config.mapjson = await d3.json("./uk.json");
-        config.data2015 = await d3.json("./uk_ge_2015_v2.json");
+        // config.data2015 = await d3.json("./uk_ge_2015_v2.json");
         config.data2017 = await d3.json("./uk_ge_2017_v2.json");
 
-        config.buttons = Array.from(document.getElementsByClassName("result-button"));
-        config.buttons.forEach((el) => el.addEventListener("click", changeResult));
-        console.log("All data loaded, initializing map");
+        // config.buttons = Array.from(document.getElementsByClassName("result-button"));
+        // config.buttons.forEach((el) => el.addEventListener("click", changeResult));
         initMap();
-        console.log("Finished init map");
       }
   
       function changeResult(e) {
@@ -52,7 +50,7 @@ const MapComponent = () => {
   
       function colorMap() {
         const g = d3.select("#map svg g");
-        const uk = updateMapProperties();
+        updateMapProperties();
   
         g.selectAll("path").style("fill", function (d) {
           return d.properties.color;
@@ -262,15 +260,14 @@ const MapComponent = () => {
     return (
       <div>
         <div class="container">
-            <h2>UK General Election 2015/17</h2>
             <div class="col-md-12">
-                <div class="row">
-                    <button class="btn btn-sm btn-default result-button" data-resultsyear="2015">2015 results</button>
-                    <button class="btn btn-sm btn-primary result-button" data-resultsyear="2017">2017 results</button> 
+                {/* <div class="row"> */}
+                    {/* <button class="btn btn-sm btn-default result-button" data-resultsyear="2015">2015 results</button>
+                    <button class="btn btn-sm btn-primary result-button" data-resultsyear="2017">2017 results</button>  */}
                     <div class="panel">
                         <div id="map" ref={mapRef} style={{ width: '100%', height: '500px', border: '1px solid black' }}></div>
                     </div>    
-                </div>
+                {/* </div> */}
             </div>
         </div>
         <div id="infoPanelTemplate" style={{ display: 'none' }}>
